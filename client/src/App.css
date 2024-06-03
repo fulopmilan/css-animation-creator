@@ -1,8 +1,166 @@
-.square {
-  height: 50px;
-  width: 50px;
-  background-color: #555;
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #12040D;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
+.App {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Align to the top of the container */
+  flex-wrap: wrap;
+  /* Ensure responsiveness */
+  gap: 20px;
+  /* Add space between columns */
+}
+
+.column {
+  max-width: 425px;
+  flex: 1;
+}
+
+.small-container,
+.big-container {
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.small-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+}
+
+.small-container input[type='text'] {
+  flex: 1;
+  /* Use flex: 1 to allow the input to grow and take up remaining space */
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-bottom: 2px solid #ccc;
+  transition: border-bottom 0.3s;
+  background-color: transparent;
+
+  padding: 5px;
+  width: 70%;
+}
+
+.big-container {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+}
+
+.animation-container {
+  width: 100%;
+  height: 100%;
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.square {
+  border-radius: 25px;
+  height: 150px;
+  width: 150px;
+  background-color: #B95555;
   animation-name: animation;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
+}
+
+.title-text {
+  text-align: center;
+  font-size: 36px;
+  color: #F5F5F5;
+  margin-bottom: 40px;
+}
+
+input[type='text'] {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-bottom: 2px solid #ccc;
+  transition: border-bottom 0.3s;
+  background-color: transparent;
+  color: #12040D;
+  padding: 5px;
+  width: 70%;
+}
+
+input[type='text']::placeholder {
+  color: #ccc;
+}
+
+input[type='text']:focus {
+  border-bottom: 2px solid #12040D;
+}
+
+button {
+  background-color: #12040D;
+  border: none;
+  color: #F5F5F5;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  height: 40px;
+}
+
+button:hover {
+  background-color: #2D090D;
+}
+
+button:focus {
+  outline: none;
+}
+
+button i {
+  margin-right: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #12040D;
+  resize: none;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+textarea::placeholder {
+  color: #ccc;
+}
+
+a {
+  color: white;
+}
+
+.github-repo-text {
+  text-align: center;
 }

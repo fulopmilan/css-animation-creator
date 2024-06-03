@@ -4,6 +4,14 @@ import axios from "axios";
 import './App.css'
 
 function App() {
+  var random_prompts = [
+    "rolling on the floor",
+    "dying of laughter",
+    "backflip and then a frontflip"
+  ]
+
+  var random_prompt_index = Math.floor(Math.random() * random_prompts.length);
+
   const [animationName, setAnimationName] = useState("")
   const [animationCode, setAnimationCode] = useState("")
   const [animationSpeed, setAnimationSpeed] = useState(2)
@@ -17,8 +25,7 @@ function App() {
     setAnimationSpeed(parseFloat(newSpeed))
   }
   function sendAnimationRequest() {
-    console.log("xd")
-    axios.post("http://localhost:5000/api/send-animation-request", { animationName })
+    axios.post("http://localhost:5000/api/send-animation-request", animationName == "" ? { "animationName": random_prompts[random_prompt_index] } : { animationName })
       .then((response) => {
         setAnimationCode(response.data)
       })
@@ -28,20 +35,32 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>random animácccció xd</h1>
-      <input type='text' placeholder='animáció ötlet' onChange={editAnimationName} />
-      <button onClick={sendAnimationRequest}>küldés</button>
-      <br />
-      <textarea value={animationCode}></textarea>
+    <div className="app">
+      <h1 className='title-text'>Create your own animations <br /> <u>without any effort</u></h1>
 
-      <input type='text' placeholder='animation speed' onChange={editAnimationSpeed} />
-
-      <div id='animation-container'>
-        <div className="square" style={{ animationDuration: `${animationSpeed}s` }}></div>
+      <div className='row'>
+        <div className='column'>
+          <div className='small-container'>
+            <input className='animation-name-edit-text' type='text' placeholder={random_prompts[random_prompt_index]} onChange={editAnimationName} />
+            <button className='animation-name-edit-button' onClick={sendAnimationRequest}>animate!</button>
+          </div>
+          <div className='big-container'>
+            <textarea value={animationCode}></textarea>
+          </div>
+        </div>
+        <div className='column'>
+          <div className='big-container'>
+            <div className='animation-container'>
+              <div className="square" style={{ animationDuration: `${animationSpeed}s` }}></div>
+            </div>
+          </div>
+          <div className='small-container'>
+            <input type='text' placeholder='duration' onChange={editAnimationSpeed} />
+          </div>
+        </div>
       </div>
 
-
+      <p className='github-repo-text'><a href='https://github.com/fulopmilan/css-animation-creator'>github</a></p>
 
       <style>
         {animationCode}
