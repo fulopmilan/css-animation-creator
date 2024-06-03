@@ -21,7 +21,7 @@ app.post('/api/send-animation-request', async (req: Request, res: Response) => {
 
     const chatCompletion = await openai.chat.completions.create({
         messages: [
-            { role: 'system', content: 'You must generate a CSS animation with the given description. Dont write anything else other than the code itself. only write the @keyframes. dont write ``` or anything like that' },
+            { role: 'system', content: 'You must generate a CSS animation with the given description. Dont write anything else other than the code itself. only write the @keyframes. dont write ``` or anything like that. keyframe name should be "animation".' },
             { role: 'user', content: animationName }
         ],
         model: 'gpt-3.5-turbo',
